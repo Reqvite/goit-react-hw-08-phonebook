@@ -1,0 +1,40 @@
+import { Box, Flex, Heading, Image, Button } from '@chakra-ui/react';
+import { NavLink } from 'react-router-dom';
+
+const Home = () => {
+  return (
+    <Box as="main" maxW="1200px" mx="auto" py={3}>
+      <Heading
+        as="h1"
+        size="4xl"
+        bgGradient="linear(to-l, #7928CA, #0078FF)"
+        bgClip="text"
+        textAlign="center"
+      >
+        PhoneBook
+      </Heading>
+      <Flex flexDirection="column" alignItems="center">
+        <Image
+          src="https://launchux.com/wp-content/uploads/2021/01/Cell-Phone.gif"
+          // src="https://play-lh.googleusercontent.com/7O6Mvzvsy_gxPY7IPHN5iJWo9CB9CEeUvs8Ha1m1v0fctHD-tLwBR6TycZ45V-5aGkE"
+          alt="Doctor Who TARDIS"
+          objectFit="cover"
+          mt={10}
+        />
+        <Button
+          as={NavLink}
+          to="/login"
+          colorScheme="messenger"
+          variant="solid"
+          ml="5"
+          fontSize="lg"
+          mt={3}
+        >
+          Try it now!
+        </Button>
+      </Flex>
+    </Box>
+  );
+};
+
+export default Home;
