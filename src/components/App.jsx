@@ -1,5 +1,4 @@
 import { GlobalStyle } from './GlobalStyle/GlobalStyle';
-import { Container } from '@chakra-ui/react';
 
 import { Route, Routes } from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
@@ -25,21 +24,3 @@ export const App = () => {
     </>
   );
 };
-
-{
-  /* 
-        <Container maxW="1200">
-          <div
-            style={{
-              height: '100vh',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: 40,
-              color: '#010101',
-            }}
-          >
-            Phone Book
-          </div>
-        </Container> */
-}
