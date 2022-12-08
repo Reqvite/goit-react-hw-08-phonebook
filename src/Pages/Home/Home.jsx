@@ -19,14 +19,12 @@ const Home = () => {
           // src="https://play-lh.googleusercontent.com/7O6Mvzvsy_gxPY7IPHN5iJWo9CB9CEeUvs8Ha1m1v0fctHD-tLwBR6TycZ45V-5aGkE"
           alt="Doctor Who TARDIS"
           objectFit="cover"
-          mt={10}
         />
         <Button
           as={NavLink}
           to="/login"
           colorScheme="messenger"
           variant="solid"
-          ml="5"
           fontSize="lg"
           mt={3}
         >

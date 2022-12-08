@@ -5,11 +5,20 @@ import { AppBar } from './AppBar/AppBar';
 import RegisterForm from 'Pages/RegisterForm/RegisterForm';
 import LoginForm from 'Pages/LoginForm/LoginForm';
 import Home from 'Pages/Home/Home';
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectRefreshing, selectUser } from 'redux/auth/selectors';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectRefreshing);
   const user = useSelector(selectUser);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   console.log(user);
   return (
     <>
