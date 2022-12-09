@@ -5,21 +5,21 @@ import { AppBar } from './AppBar/AppBar';
 import RegisterForm from 'Pages/RegisterForm/RegisterForm';
 import LoginForm from 'Pages/LoginForm/LoginForm';
 import Home from 'Pages/Home/Home';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectRefreshing, selectUser } from 'redux/auth/selectors';
+import { useDispatch } from 'react-redux';
+
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
+import { Contacts } from 'Pages/Contacts/Contacts';
+import { fetchContacts } from 'redux/contacts/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectRefreshing);
-  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
-  console.log(user);
   return (
     <>
       <Routes>
@@ -27,6 +27,7 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Route>
       </Routes>
       <GlobalStyle />

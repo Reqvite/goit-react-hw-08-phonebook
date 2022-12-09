@@ -11,15 +11,15 @@ export const UserMenu = () => {
   return (
     <>
       <Text fontSize="lg" fontWeight="medium">
-        {user.email}
+        Welcome, {user?.email}
       </Text>
       <Button
         onClick={() => dispatch(logOut())}
-        colorScheme="messenger"
+        colorScheme="purple"
         variant="ghost"
         ml="10"
         fontSize="lg"
-        color="black"
+        color="#A0AEC0"
       >
         Logout
       </Button>
