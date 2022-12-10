@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Drawer,
   DrawerBody,
@@ -90,16 +89,22 @@ export const DrawerBar = () => {
                   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                   id="field-:r2:"
                 />
-
-                <Button type="submit" colorScheme="messenger">
-                  Submit
-                </Button>
+                <Flex justifyContent="center">
+                  <Button type="submit" colorScheme="messenger" mt={3}>
+                    Submit
+                  </Button>
+                </Flex>
               </FormControl>
             </Stack>
           </DrawerBody>
 
           <DrawerFooter borderTopWidth="1px">
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button
+              variant="outline"
+              mr={3}
+              onClick={onClose}
+              _hover={{ bg: 'blue.500', color: ' white' }}
+            >
               Cancel
             </Button>
           </DrawerFooter>

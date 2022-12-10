@@ -15,11 +15,10 @@ export const UserMenu = () => {
       </Text>
       <Button
         onClick={() => dispatch(logOut())}
-        colorScheme="purple"
+        _hover={{ bg: 'blue.500', color: ' white' }}
         variant="ghost"
         ml="10"
         fontSize="lg"
-        color="#A0AEC0"
       >
         Logout
       </Button>

@@ -26,8 +26,8 @@ const LoginForm = () => {
   };
 
   return (
-    <Flex justifyContent="center" alignItems="center">
-      <Box maxW="360px" w="350px" borderRadius="md" bg="#2D3748" p={5} mt={5}>
+    <Flex as="main" py={3} justifyContent="center" alignItems="center">
+      <Box maxW="360px" w="350px" borderRadius="md" bg="gray.700" p={5} mt={5}>
         <Heading size="md" textAlign="center" mb={2}>
           Log in to Phonebook
         </Heading>

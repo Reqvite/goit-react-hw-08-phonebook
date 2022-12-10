@@ -16,7 +16,7 @@ export const AppBar = () => {
   return (
     <>
       <Box minH="calc(100vh - 51px)">
-        <Box as="header" bg="#2D3748" w="100%" p={3}>
+        <Box as="header" bg="gray.700" w="100%" p={3}>
           <Flex justifyContent="right" alignItems="baseline">
             <Navigation />
             <Spacer />

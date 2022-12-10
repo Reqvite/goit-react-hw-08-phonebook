@@ -1,11 +1,13 @@
 import { Heading, Input, Box } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { contactsFilter } from 'redux/contacts/filterSlice';
 
 export const Filter = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   const handleFilter = e => {
-  //     dispatch(contactsFilter(e.target.value));
-  //   };
+  const handleFilter = e => {
+    dispatch(contactsFilter(e.target.value));
+  };
 
   return (
     <Box mt={3}>
@@ -24,8 +26,12 @@ export const Filter = () => {
         variant="outline"
         placeholder="Enter name"
         focusBorderColor="#0078FF"
+        bgGradient="linear(to-l, #7928CA, #0078FF)"
+        bgClip="text"
+        fontSize={20}
         borderColor="black"
         mt={3}
+        onChange={handleFilter}
       />
     </Box>
   );

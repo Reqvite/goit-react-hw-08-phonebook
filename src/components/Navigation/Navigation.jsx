@@ -12,7 +12,7 @@ export const Navigation = () => {
         <Button
           as={NavLink}
           to="/"
-          colorScheme="messenger"
+          _hover={{ bg: 'blue.500', color: ' white' }}
           variant="ghost"
           fontSize="lg"
           color="white"
@@ -23,7 +23,7 @@ export const Navigation = () => {
           <Button
             as={NavLink}
             to="/contacts"
-            colorScheme="messenger"
+            _hover={{ bg: 'blue.500', color: ' white' }}
             variant="ghost"
             ml="5"
             fontSize="lg"

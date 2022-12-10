@@ -1,22 +1,22 @@
 import { List, ListItem } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/selectors';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { Contact } from './Contact/Contact';
+import { ContactListSkeleton } from './ContactListSleketon/ContactListSkeleton';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
-  // const contacts = useSelector(getContacts);
-  // const filter = useSelector(getFilter)
+  const filter = useSelector(selectFilter);
   // const isLoading = useSelector(getIsLoading)
   // const error = useSelector(getError)
 
-  // function handleFilter() {
-  //   return contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()))
-  // }
-  // handleFilter()
+  function handleFilter() {
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }
 
-  // const filterContacts = handleFilter();
+  const filterContacts = handleFilter();
 
   return (
     <List
@@ -24,26 +24,16 @@ export const ContactList = () => {
       w="70%"
       maxW="400px"
       borderRadius="md"
-      bg="#2D3748"
+      bg="gray.700"
       p={5}
       mt={5}
     >
-      {contacts?.map(contact => (
+      <ContactListSkeleton />
+      {filterContacts?.map(contact => (
         <ListItem key={contact.id}>
           <Contact contact={contact} />
         </ListItem>
       ))}
-      {/* {isLoading ? <Loader />
-          :contacts &&
-        error ? <Notification>{error}</Notification>
-           : contacts?.length === 0
-         ? <Notification>You don't have contacts.</Notification>
-             :filterContacts?.length === 0
-         ? <Notification>No contacts were found matching your request.</Notification>
-             :filterContacts?.map(contact => 
-              <ListItem key={contact.id} >
-                <Contact contact={contact}/>
-              </ListItem> )} */}
     </List>
   );
 };

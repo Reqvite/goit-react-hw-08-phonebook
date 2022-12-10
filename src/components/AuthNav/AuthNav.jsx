@@ -7,7 +7,7 @@ export const AuthNav = () => {
       <Button
         as={NavLink}
         to="/register"
-        colorScheme="messenger"
+        _hover={{ bg: 'blue.500', color: ' white' }}
         variant="ghost"
         fontSize="lg"
         color="white"
@@ -17,7 +17,7 @@ export const AuthNav = () => {
       <Button
         as={NavLink}
         to="/login"
-        colorScheme="messenger"
+        _hover={{ bg: 'blue.500', color: ' white' }}
         variant="ghost"
         ml="5"
         fontSize="lg"

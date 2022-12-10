@@ -1,6 +1,6 @@
 import { Button, Flex, Spacer, Text } from '@chakra-ui/react';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 
