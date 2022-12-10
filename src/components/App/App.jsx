@@ -59,7 +59,7 @@ export const App = () => {
         </Route>
       </Routes>
       <GlobalStyle />
-      <Notification />;
+      <Notification />
     </>
   );
 };
