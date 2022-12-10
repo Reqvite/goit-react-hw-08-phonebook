@@ -6,7 +6,6 @@ import { selectUser } from 'redux/auth/selectors';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log(user);
 
   return (
     <>
@@ -17,8 +16,8 @@ export const UserMenu = () => {
         onClick={() => dispatch(logOut())}
         _hover={{ bg: 'blue.500', color: ' white' }}
         variant="ghost"
-        ml="10"
         fontSize="lg"
+        ml={2}
       >
         Logout
       </Button>

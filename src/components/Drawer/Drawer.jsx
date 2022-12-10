@@ -7,51 +7,27 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
   Stack,
   useDisclosure,
 } from '@chakra-ui/react';
 import { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contacts/operations';
-import { selectContacts } from 'redux/contacts/selectors';
+
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { AddIcon } from '@chakra-ui/icons';
 
 export const DrawerBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = useRef();
 
-  const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.elements[0].value;
-    const number = form.elements[1].value;
-
-    const contact = {
-      name,
-      number,
-    };
-
-    if (
-      contacts
-        ?.map(({ name }) => name.toLowerCase())
-        .includes(name.toLowerCase())
-    ) {
-      alert(`${name} is already in contacts.`);
-    } else {
-      dispatch(addContact(contact));
-    }
-    form.reset();
-  };
-
   return (
     <>
-      <Button type="submit" colorScheme="messenger" mt={2} onClick={onOpen}>
+      <Button
+        type="submit"
+        colorScheme="messenger"
+        mt={2}
+        onClick={onOpen}
+        leftIcon={<AddIcon />}
+      >
         Add contact
       </Button>
       <Drawer
@@ -67,34 +43,7 @@ export const DrawerBar = () => {
 
           <DrawerBody>
             <Stack spacing="24px">
-              <FormControl
-                as="form"
-                autoComplete="off"
-                isRequired
-                onSubmit={handleSubmit}
-              >
-                <FormLabel htmlFor="field-:r1:">Name</FormLabel>
-                <Input
-                  type="text"
-                  name="name"
-                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                  id="field-:r1:"
-                />
-                <FormLabel htmlFor="field-:r2:">Number</FormLabel>
-                <Input
-                  type="tel"
-                  name="number"
-                  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                  id="field-:r2:"
-                />
-                <Flex justifyContent="center">
-                  <Button type="submit" colorScheme="messenger" mt={3}>
-                    Submit
-                  </Button>
-                </Flex>
-              </FormControl>
+              <ContactForm />
             </Stack>
           </DrawerBody>
 

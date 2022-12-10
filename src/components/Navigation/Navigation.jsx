@@ -1,10 +1,9 @@
 import { Button, ButtonGroup } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { useAuth } from 'hooks';
 import { NavLink } from 'react-router-dom';
-import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 export const Navigation = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { isLoggedIn } = useAuth();
 
   return (
     <nav>

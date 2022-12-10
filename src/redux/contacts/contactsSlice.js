@@ -8,32 +8,11 @@ const initialState = {
   error: null,
 };
 
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
-
-// const handlePending = (state, action) => {
-//   state.isLoading = true;
-// };
-
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(addContact.pending, (state, action) => {
-        state.isLoading = true;
-      })
-      .addCase(addContact.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items.push(action.payload);
-      })
-      .addCase(addContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
       .addCase(fetchContacts.pending, (state, action) => {
         state.isLoading = true;
       })
@@ -47,9 +26,18 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(deleteContact.pending, (state, action) => {
+      .addCase(addContact.pending, (state, action) => {
         state.isLoading = true;
       })
+      .addCase(addContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items.push(action.payload);
+      })
+      .addCase(addContact.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteContact.pending, (state, action) => {})
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;

@@ -1,5 +1,5 @@
 import { AuthNav } from 'components/AuthNav/AuthNav';
-import { Box, Flex, Spacer } from '@chakra-ui/react';
+import { Box, Flex, Spacer, useMediaQuery } from '@chakra-ui/react';
 
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -9,18 +9,27 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { Navigation } from 'components/Navigation/Navigation';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Footer } from 'components/Footer/Footer';
+import { MobileMenu } from 'components/MobileMenu/MobileMenu';
 
 export const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const [isLargerThan578] = useMediaQuery('(min-width: 578px)');
 
   return (
     <>
       <Box minH="calc(100vh - 51px)">
         <Box as="header" bg="gray.700" w="100%" p={3}>
           <Flex justifyContent="right" alignItems="baseline">
-            <Navigation />
-            <Spacer />
-            {isLoggedIn ? <UserMenu /> : <AuthNav />}
+            {!isLargerThan578 ? (
+              <MobileMenu />
+            ) : (
+              <>
+                <Navigation />
+                <Spacer />
+                {isLoggedIn ? <UserMenu /> : <AuthNav />}
+              </>
+            )}
           </Flex>
         </Box>
         <Suspense>

@@ -1,7 +1,11 @@
 import { Box, Flex, Heading, Image, Button } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 const Home = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const route = isLoggedIn ? '/contacts' : '/login';
   return (
     <Box as="main" maxW="1200px" mx="auto" py={3}>
       <Heading
@@ -22,7 +26,7 @@ const Home = () => {
         />
         <Button
           as={NavLink}
-          to="/login"
+          to={route}
           colorScheme="messenger"
           variant="solid"
           fontSize="lg"

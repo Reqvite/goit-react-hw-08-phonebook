@@ -27,6 +27,7 @@ export const Contacts = () => {
           size="xl"
           bgGradient="linear(to-l, #7928CA, #0078FF)"
           bgClip="text"
+          mt={3}
         >
           Your contacts
         </Heading>

@@ -10,7 +10,7 @@ export const Filter = () => {
   };
 
   return (
-    <Box mt={3}>
+    <Box>
       <Heading
         as="h3"
         size="lg"

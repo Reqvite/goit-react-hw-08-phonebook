@@ -1,6 +1,6 @@
 import ContentLoader from 'react-content-loader';
 
-export const ContactListSkeleton = props => {
+export const ContactListSkeleton = () => {
   return (
     <ContentLoader
       speed={2}
@@ -9,9 +9,6 @@ export const ContactListSkeleton = props => {
       viewBox="0 0 350 600"
       backgroundColor="#f5f5f5"
       foregroundColor="#0078FF"
-      //   bgGradient="linear(to-l, #7928CA, #0078FF)"
-      //       bgClip="text"
-      {...props}
     >
       <rect x="4" y="8" rx="3" ry="3" width="8" height="570" />
       <rect x="5" y="573" rx="3" ry="3" width="331" height="7" />
