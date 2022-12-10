@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Flex } from '@chakra-ui/react';
 import { InfinitySpin } from 'react-loader-spinner';
 
@@ -7,4 +9,8 @@ export const AppLoader = ({ h }) => {
       <InfinitySpin width="200" color="#0078FF" />
     </Flex>
   );
+};
+
+AppLoader.propTypes = {
+  h: PropTypes.string,
 };

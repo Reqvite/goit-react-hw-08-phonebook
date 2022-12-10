@@ -16,6 +16,7 @@
     "framer-motion": "^7.6.19",
     "immer": "^9.0.16",
     "modern-normalize": "^1.1.0",
+    "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-content-loader": "^6.2.0",
     "react-dom": "^18.1.0",

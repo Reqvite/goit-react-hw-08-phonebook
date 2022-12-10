@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { DeleteIcon } from '@chakra-ui/icons';
 import { Button, Flex, Spacer, Text } from '@chakra-ui/react';
 
@@ -29,6 +31,10 @@ export const Contact = ({ contact }) => {
   );
 };
 
-// Contact.propTypes = {
-//   contact: PropTypes.object.isRequired,
-// };
+Contact.propTypes = {
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }),
+};
