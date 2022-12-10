@@ -22,6 +22,7 @@ export const Contact = ({ contact }) => {
         colorScheme="messenger"
         onClick={() => handleDelete(id)}
         leftIcon={<DeleteIcon />}
+        minW="103px"
       >
         Delete
       </Button>

@@ -36,7 +36,6 @@ export const ContactForm = () => {
     form.reset();
   };
 
-  console.log(contacts);
   return (
     <FormControl
       as="form"
