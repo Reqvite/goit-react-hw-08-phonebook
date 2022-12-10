@@ -29,12 +29,14 @@ export const ContactForm = () => {
         icon: '🤦🏻‍♂️',
         position: 'top-center',
       });
+      return;
     } else {
       dispatch(addContact(contact));
     }
     form.reset();
   };
 
+  console.log(contacts);
   return (
     <FormControl
       as="form"

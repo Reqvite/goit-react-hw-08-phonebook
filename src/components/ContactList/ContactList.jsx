@@ -1,15 +1,19 @@
-import { Alert, Flex, List, ListItem } from '@chakra-ui/react';
+import { Alert, List, ListItem } from '@chakra-ui/react';
+import { AppLoader } from 'components/AppLoader/AppLoader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
-import { selectContacts, selectFilter } from 'redux/contacts/selectors';
+import {
+  selectContacts,
+  selectFilter,
+  selectLoading,
+} from 'redux/contacts/selectors';
 import { Contact } from './Contact/Contact';
-import { ContactListSkeleton } from './ContactListSleketon/ContactListSkeleton';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-
+  const isLoading = useSelector(selectLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +27,6 @@ export const ContactList = () => {
   }
 
   const filterContacts = handleFilter();
-
   return (
     <List
       spacing={3}
@@ -34,10 +37,8 @@ export const ContactList = () => {
       p={5}
       mt={5}
     >
-      {contacts.length === 0 ? (
-        <Flex justifyContent="center">
-          <ContactListSkeleton />
-        </Flex>
+      {contacts.length === 0 && isLoading ? (
+        <AppLoader />
       ) : contacts?.length === 0 ? (
         <Alert status="info" backgroundColor="transparent">
           You don't have contacts.

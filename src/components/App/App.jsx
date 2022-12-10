@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { Contacts } from 'Pages/Contacts/Contacts';
 import { useAuth } from 'hooks';
-import { AppLoader } from './AppLoader/AppLoader';
+import { AppLoader } from 'components/AppLoader/AppLoader';
 import { Notification } from 'components/Notification/Notification';
 
 export const App = () => {
@@ -26,7 +26,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <AppLoader />
+    <AppLoader h={`${100}vh`} />
   ) : (
     <>
       <Routes>
