@@ -30,7 +30,7 @@ export const ContactList = () => {
   return (
     <List
       spacing={3}
-      w="70%"
+      w="90%"
       maxW="400px"
       borderRadius="md"
       bg="gray.700"
