@@ -20,8 +20,7 @@ const Home = () => {
       <Flex flexDirection="column" alignItems="center">
         <Image
           src="https://launchux.com/wp-content/uploads/2021/01/Cell-Phone.gif"
-          // src="https://play-lh.googleusercontent.com/7O6Mvzvsy_gxPY7IPHN5iJWo9CB9CEeUvs8Ha1m1v0fctHD-tLwBR6TycZ45V-5aGkE"
-          alt="Doctor Who TARDIS"
+          alt="Phone"
           objectFit="cover"
         />
         <Button
