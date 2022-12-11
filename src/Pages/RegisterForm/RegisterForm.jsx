@@ -6,8 +6,12 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Text,
+  Spacer,
+  Link,
 } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { register } from 'redux/auth/operations';
 
 const RegisterForm = () => {
@@ -48,6 +52,13 @@ const RegisterForm = () => {
             <Button type="submit" colorScheme="messenger" mt={2}>
               Sign Up
             </Button>
+          </Flex>
+          <Flex alignItems="baseline" mt={3}>
+            <Text>Already have an account?</Text>
+            <Spacer />
+            <Link as={NavLink} to="/login">
+              Log in
+            </Link>
           </Flex>
         </FormControl>
       </Box>
