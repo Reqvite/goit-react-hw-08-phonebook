@@ -2,16 +2,12 @@ import { GlobalStyle } from '../GlobalStyle/GlobalStyle';
 
 import { Route, Routes } from 'react-router-dom';
 import { AppBar } from '../AppBar/AppBar';
-import RegisterForm from 'Pages/RegisterForm/RegisterForm';
-import LoginForm from 'Pages/LoginForm/LoginForm';
 import Home from 'Pages/Home/Home';
 import { PrivateRoute } from '../PrivatRoute/PrivateRoute';
 import { RestrictedRoute } from '../RestrictedRoute/RestrictedRoute';
 import { useDispatch } from 'react-redux';
-
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
-import { Contacts } from 'Pages/Contacts/Contacts';
 import { useAuth } from 'hooks';
 import { AppLoader } from 'components/AppLoader/AppLoader';
 import { Notification } from 'components/Notification/Notification';
@@ -20,6 +16,12 @@ export const App = () => {
   const dispatch = useDispatch();
 
   const { isRefreshing } = useAuth();
+
+  const RegisterFormPage = lazy(() =>
+    import('Pages/RegisterForm/RegisterForm')
+  );
+  const LoginFormPage = lazy(() => import('Pages/LoginForm/LoginForm'));
+  const ContactsPage = lazy(() => import('Pages/Contacts/Contacts'));
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -36,7 +38,7 @@ export const App = () => {
             path="/register"
             element={
               <RestrictedRoute
-                component={<RegisterForm />}
+                component={<RegisterFormPage />}
                 redirectTo="/contacts"
               />
             }
@@ -45,7 +47,7 @@ export const App = () => {
             path="/login"
             element={
               <RestrictedRoute
-                component={<LoginForm />}
+                component={<LoginFormPage />}
                 redirectTo="/contacts"
               />
             }
@@ -53,7 +55,7 @@ export const App = () => {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute component={<Contacts />} redirecTo="/login" />
+              <PrivateRoute component={<ContactsPage />} redirecTo="/login" />
             }
           />
         </Route>

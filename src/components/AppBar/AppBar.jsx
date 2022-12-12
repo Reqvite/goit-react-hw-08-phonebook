@@ -10,6 +10,7 @@ import { Navigation } from 'components/Navigation/Navigation';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Footer } from 'components/Footer/Footer';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
+import { AppLoader } from 'components/AppLoader/AppLoader';
 
 export const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -18,7 +19,7 @@ export const AppBar = () => {
 
   return (
     <>
-      <Box minH="calc(100vh - 51px)">
+      <Box minH="calc(100vh - 51px)" color="white">
         <Box as="header" bg="gray.700" w="100%" p={3}>
           <Flex justifyContent="right" alignItems="baseline">
             {!isLargerThan578 ? (
@@ -32,7 +33,7 @@ export const AppBar = () => {
             )}
           </Flex>
         </Box>
-        <Suspense>
+        <Suspense fallback={<AppLoader h={`${100}vh`} />}>
           <Outlet />
         </Suspense>
       </Box>

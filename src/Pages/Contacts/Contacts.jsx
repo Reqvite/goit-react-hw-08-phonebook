@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectRefreshing } from 'redux/auth/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   const isRefresh = useSelector(selectRefreshing);
 
@@ -37,3 +37,5 @@ export const Contacts = () => {
     </Box>
   );
 };
+
+export default Contacts;
