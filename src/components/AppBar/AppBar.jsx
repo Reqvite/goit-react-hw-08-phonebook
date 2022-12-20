@@ -20,7 +20,7 @@ export const AppBar = () => {
   return (
     <>
       <Box minH="calc(100vh - 51px)" color="white">
-        <Box as="header" bg="gray.700" w="100%" p={3}>
+        <Box as="header" bg="gray.700" w="100%" p={5}>
           <Flex justifyContent="right" alignItems="baseline">
             {!isLargerThan578 ? (
               <MobileMenu />

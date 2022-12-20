@@ -21,6 +21,7 @@ const Home = () => {
         <Image
           src="https://launchux.com/wp-content/uploads/2021/01/Cell-Phone.gif"
           alt="Phone"
+          w="270px"
           objectFit="cover"
         />
         <Button
